@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#00f7ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="SparkInvoice">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>SparkInvoice | India's #1 Voice Billing Software</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-bolt logo-icon"></i>
+                    <span>SparkInvoice</span>
+                </div>
+                <div class="nav-links" id="navLinks">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#templates" class="nav-link">Templates</a>
+                    <a href="#industries" class="nav-link">Industries</a>
+                    <a href="#pricing" class="nav-link">Pricing</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                </div>
+                <div class="nav-buttons">
+                    <button class="btn btn-primary" id="signupBtn" onclick="openSignupPage()">Sign Up Free</button>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" style="display: none;">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="mobile-nav-links">
+            <a href="#home" class="mobile-nav-link" onclick="closeMobileMenu()">Home</a>
+            <a href="#features" class="mobile-nav-link" onclick="closeMobileMenu()">Features</a>
+            <a href="#templates" class="mobile-nav-link" onclick="closeMobileMenu()">Templates</a>
+            <a href="#industries" class="mobile-nav-link" onclick="closeMobileMenu()">Industries</a>
+            <a href="#pricing" class="mobile-nav-link" onclick="closeMobileMenu()">Pricing</a>
+            <a href="#faq" class="mobile-nav-link" onclick="closeMobileMenu()">FAQ</a>
+        </div>
+        <div class="mobile-menu-buttons">
+            <button class="btn btn-primary mobile-signup-btn" onclick="openSignupModal(); closeMobileMenu();">Sign Up Free</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>India's <span class="gradient-text">#1 Voice Billing Software</span></h1>
+                    <p>Bol kar invoice banaye! AI-powered voice recognition se professional bills seconds mein. Hindi ya English - aapki marzi!</p>
+                    
+                    <div class="cta-buttons">
+                        <button class="btn btn-primary btn-vibrate" onclick="scrollToSection('generator')">
+                            <i class="fas fa-bolt"></i> Voice se Invoice Banaye
+                        </button>
+                        <button class="btn btn-secondary" onclick="scrollToSection('templates')">
+                            <i class="fas fa-star"></i> Templates Dekhe
+                        </button>
+                    </div>
+                    
+                    <div class="voice-demo">
+                        <p>Try these voice commands:</p>
+                        <div class="voice-commands-preview">
+                            <span class="voice-command-pill">"Business name Sharma Traders"</span>
+                            <span class="voice-command-pill">"Item laptop add karo"</span>
+                            <span class="voice-command-pill">"Price fifty thousand"</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="hologram-container">
+                        <div class="hologram">
+                            <div class="hologram-header">
+                                <div class="hologram-title">VOICE INVOICE</div>
+                                <div class="hologram-subtitle">Bol kar Banaye</div>
+                            </div>
+                            <div class="hologram-body">
+                                <div class="hologram-command">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>"Business name..."</span>
+                                </div>
+                                <div class="hologram-command">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>"Item add karo..."</span>
+                                </div>
+                                <div class="hologram-command">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>"Price..."</span>
+                                </div>
+                                <div class="hologram-result">
+                                    <span>Invoice Ready!</span>
+                                    <span>✅</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section class="templates-section" id="templates">
+        <div class="container">
+            <h2 class="section-title">Professional Templates</h2>
+            <p class="section-subtitle">Choose from 8+ professionally designed invoice templates</p>
+            
+            <div class="templates-grid">
+                <div class="template-card" data-template="modern">
+                    <div class="template-preview">
+                        <div class="template-demo modern-demo">
+                            <div class="demo-header">MODERN INVOICE</div>
+                            <div class="demo-content">
+                                <div class="demo-line"></div>
+                                <div class="demo-line short"></div>
+                                <div class="demo-line"></div>
+                                <div class="demo-line short"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Vibrant Colorful</h3>
+                        <p>Clean and contemporary design for tech businesses</p>
+                        <button class="btn btn-primary select-template" data-template="modern">Select Template</button>
+                    </div>
+                </div>
+                
+                <div class="template-card" data-template="classic">
+                    <div class="template-preview">
+                        <div class="template-demo classic-demo">
+                            <div class="demo-header">CLASSIC INVOICE</div>
+                            <div class="demo-content">
+                                <div class="demo-line"></div>
+                                <div class="demo-line short"></div>
+                                <div class="demo-line"></div>
+                                <div class="demo-line short"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Classic Business</h3>
+                        <p>Traditional design for established businesses</p>
+                        <button class="btn btn-primary select-template" data-template="classic">Select Template</button>
+                    </div>
+                </div>
+                
+                <div class="template-card" data-template="premium">
+                    <div class="template-preview">
+                        <div class="template-demo premium-demo">
+                            <div class="demo-header">PREMIUM INVOICE</div>
+                            <div class="demo-content">
+                                <div class="demo-line"></div>
+                                <div class="demo-line short"></div>
+                                <div class="demo-line"></div>
+                                <div class="demo-line short"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Premium Luxury</h3>
+                        <p>Elegant design for premium brands</p>
+                        <button class="btn btn-primary select-template" data-template="premium">Select Template</button>
+                    </div>
+                </div>
+                
+                <div class="template-card" data-template="vibrant">
+                    <div class="template-preview">
+                        <div class="template-demo vibrant-demo">
+                            <div class="demo-header">VIBRANT INVOICE</div>
+                            <div class="demo-content">
+                                <div class="demo-line"></div>
+                                <div class="demo-line short"></div>
+                                <div class="demo-line"></div>
+                                <div class="demo-line short"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h3>Modern Professional</h3>
+                        <p>Colorful design for creative businesses</p>
+                        <button class="btn btn-primary select-template" data-template="vibrant">Select Template</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Voice Features Section -->
+    <section class="voice-features-section">
+        <div class="container">
+            <h2 class="section-title">Voice se Invoice - 10x Faster</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3>Hindi/English Voice</h3>
+                    <p>Dono languages mein kaam kare. "Laptop add karo" ya "Add laptop" - dono chalega!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>3 Second Invoice</h3>
+                    <p>Type karne mein 2 minute, bolne mein 3 second. 40x faster billing!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Smart AI</h3>
+                    <p>Automatic GST calculation, item categorization, error correction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Invoice Generator Section -->
+    <section class="invoice-generator" id="generator">
+        <div class="container">
+            <h2 class="section-title">Voice se Invoice Banaye</h2>
+            
+<!-- Voice Controls -->
+<div class="voice-control-section">
+    <div class="voice-header-controls">
+        <button class="voice-main-btn" id="mainVoiceBtn" onclick="toggleMainVoiceInput()">
+            <i class="fas fa-microphone"></i> 
+            <span id="mainVoiceText">SUNO - Voice Input Start Kare</span>
+        </button>
+        <div class="language-selector">
+            <select id="languageSelect" onchange="changeLanguage(this.value)">
+                <option value="hi-IN">Hindi</option>
+                <option value="en-IN">English</option>
+                <option value="auto">Auto Detect</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="voice-controls">
+        <button class="voice-btn" onclick="startVoiceInput('business')">
+            <i class="fas fa-building"></i> Business Name
+        </button>
+        <button class="voice-btn" onclick="startVoiceInput('address')">
+            <i class="fas fa-map-marker-alt"></i> Business Address
+        </button>
+        <button class="voice-btn" onclick="startVoiceInput('contact')">
+            <i class="fas fa-phone"></i> Contact Number
+        </button>
+        <button class="voice-btn" onclick="startVoiceInput('gst')">
+            <i class="fas fa-file-invoice"></i> GST Number
+        </button>
+        <button class="voice-btn" onclick="startVoiceInput('customer')">
+            <i class="fas fa-user"></i> Customer Name
+        </button>
+        <button class="voice-btn" onclick="startVoiceInput('customer-address')">
+            <i class="fas fa-home"></i> Customer Address
+        </button>
+        <button class="voice-btn" onclick="startVoiceInput('invoice-number')">
+            <i class="fas fa-hashtag"></i> Invoice Number
+        </button>
+        <button class="voice-btn" onclick="startVoiceInput('invoice-date')">
+            <i class="fas fa-calendar"></i> Invoice Date
+        </button>
+
+
+        <button class="voice-btn" onclick="startVoiceInput('item')">
+    <i class="fas fa-cube"></i> Item/Product
+           </button>
+
+
+           
+        <button class="voice-btn" onclick="startVoiceInput('quantity')">
+            <i class="fas fa-cubes"></i> Quantity
+        </button>
+        <button class="voice-btn" onclick="startVoiceInput('price')">
+            <i class="fas fa-rupee-sign"></i> Price
+        </button>
+        <button class="voice-btn" onclick="startVoiceInput('discount')">
+            <i class="fas fa-percentage"></i> Discount
+        </button>
+        <button class="voice-btn" onclick="startVoiceInput('upi')">
+            <i class="fas fa-qrcode"></i> UPI ID
+        </button>
+        <button class="voice-btn" onclick="toggleGSTMode()">
+            <i class="fas fa-exchange-alt"></i> GST <span id="gstStatus">ON</span>
+        </button>
+        <button class="voice-btn" onclick="calculateTotal()">
+            <i class="fas fa-calculator"></i> Total
+        </button>
+        <button class="voice-btn" onclick="generatePDF()">
+            <i class="fas fa-file-pdf"></i> PDF
+        </button>
+        <button class="voice-btn" onclick="speakInvoiceSummary()">
+            <i class="fas fa-volume-up"></i> Suno
+        </button>
+    </div>
+    
+    <div class="voice-status" id="voiceStatus">
+        Voice system ready! Koi bhi button dabake bolna shuru karein.
+    </div>
+
+    <div class="voice-command-list">
+        <h4>Popular Voice Commands:</h4>
+        <div class="command-item">"Business name [apna name]"</div>
+        <div class="command-item">"Business address [address]"</div>
+        <div class="command-item">"Contact number [number]"</div>
+        <div class="command-item">"GST number [gst number]"</div>
+        <div class="command-item">"Customer name [customer name]"</div>
+        <div class="command-item">"Customer address [address]"</div>
+        <div class="command-item">"Invoice number [number]"</div>
+        <div class="command-item">"Invoice date [date]"</div>
+        <div class="command-item">"Quantity [number]"</div>
+        <div class="command-item">"Price [amount]"</div>
+        <div class="command-item">"Discount [amount/percentage]"</div>
+        <div class="command-item">"UPI ID [upi id]"</div>
+        <div class="command-item">"GST on karo / GST off karo"</div>
+        <div class="command-item">"Total calculate karo"</div>
+        <div class="command-item">"PDF banao"</div>
+    </div>
+</div>
+
+            <div class="generator-container">
+                <div class="form-section">
+                    <div class="form-tabs">
+                        <button class="tab-btn active" data-tab="business">Business Info</button>
+                        <button class="tab-btn" data-tab="items">Items & Services</button>
+                        <button class="tab-btn" data-tab="summary">Summary</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="business-tab">
+                        <div class="form-group">
+                            <label for="userName">Your Business Name *</label>
+                            <input type="text" id="userName" placeholder="Ya 'Business name [name]' bole" value="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="businessAddress">Business Address</label>
+                            <textarea id="businessAddress" placeholder="Address bhi bol sakte hain"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactNumber">Contact Number</label>
+                            <input type="tel" id="contactNumber" placeholder="Phone number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="gstNumber">GST Number</label>
+                            <input type="text" id="gstNumber" placeholder="GST number (optional)">
+                        </div>
+
+                        <!-- NEW: UPI ID Field -->
+                        <div class="form-group">
+                            <label for="upiId">UPI ID</label>
+                            <input type="text" id="upiId" placeholder="yourname@upi">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vendorName">Customer Name *</label>
+                            <input type="text" id="vendorName" placeholder="Ya 'Customer name [name]' bole" value="Rudra Kumar Ravi trader">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vendorAddress">Customer Address</label>
+                            <textarea id="vendorAddress" placeholder="Customer address"></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="invoiceDate">Invoice Date *</label>
+                                <input type="date" id="invoiceDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="invoiceNumber">Invoice Number *</label>
+                                <input type="text" id="invoiceNumber" placeholder="INV-001" value="INV-3498">
+                            </div>
+                        </div>
+
+                        <div class="gst-toggle">
+    <label>GST Mode:</label>
+    <label class="toggle-switch">
+        <input type="checkbox" id="gstToggle" checked>
+        <span class="toggle-slider"></span>
+    </label>
+    <span id="gstModeText">ON (GST bills)</span>
+    <button class="btn btn-outline reset-invoice-btn" onclick="resetCurrentInvoice()">
+        <i class="fas fa-redo"></i> Reset
+    </button>
+</div>
+
+                        <!-- NEW: Authorized Signature -->
+                        <div class="form-group">
+                            <label for="authorizedSignatory">Authorized Signatory</label>
+                            <input type="text" id="authorizedSignatory" placeholder="Signature name or upload">
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="items-tab">
+                        <div class="items-header">
+                            <h3>Items & Services (Voice se add kare)</h3>
+                            <button class="btn btn-primary" id="addItemBtn">
+                                <i class="fas fa-plus"></i> Add Item
+                            </button>
+                        </div>
+                        
+                        <div class="items-list" id="itemsList">
+                            <!-- Items will be added here -->
+                        </div>
+
+                        <div class="discount-section">
+                            <h4>Discount</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="discountType">Discount Type</label>
+                                    <select id="discountType">
+                                        <option value="none">No Discount</option>
+                                        <option value="percentage">Percentage %</option>
+                                        <option value="fixed">Fixed Amount</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="discountValue">Discount Value</label>
+                                    <input type="number" id="discountValue" placeholder="0" min="0">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="voice-tips">
+                            <strong>Voice Tips:</strong> 
+                            "Item laptop", "Quantity 2", "Price 50000", "GST 18", "Discount 10 percent" - aise bol sakte hain!
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="tab-content" id="summary-tab">
+                        <div class="summary-section">
+                            <h3>Invoice Summary</h3>
+                            <div class="summary-details">
+                                <div class="summary-item">
+                                    <span>Subtotal:</span>
+                                    <span id="summary-subtotal">₹0.00</span>
+                                </div>
+                                <div class="summary-item" id="discountSummaryItem">
+                                    <span>Discount:</span>
+                                    <span id="summary-discount">₹0.00</span>
+                                </div>
+                                <div class="summary-item" id="gstSummaryItem">
+                                    <span>Tax (GST):</span>
+                                    <span id="summary-tax">₹0.00</span>
+                                </div>
+                                <div class="summary-item total">
+                                    <span>Grand Total:</span>
+                                    <span id="summary-total">₹0.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NEW: Payment Options Section -->
+                        <div class="payment-options-section">
+                            <h4>Payment Options</h4>
+                        <div class="payment-buttons">
+    <button class="payment-btn" data-payment="cash" onclick="selectPaymentMethod('cash')">
+        💵 Cash
+    </button>
+    <button class="payment-btn" data-payment="card" onclick="selectPaymentMethod('card')">
+        💳 Card
+    </button>
+    <button class="payment-btn" data-payment="upi" onclick="selectPaymentMethod('upi')">
+        📱 UPI
+    </button>
+    <button class="payment-btn" data-payment="udhaar" onclick="selectPaymentMethod('udhaar')">
+        🧾 Udhaar
+    </button>
+    <button class="payment-btn" data-payment="credit" onclick="selectPaymentMethod('credit')">
+        💳 Credit
+    </button>
+</div>
+
+<!-- Udhaar Section -->
+<div id="udhaarSection" class="udhaar-section" style="display: none;">
+    <div class="udhaar-form">
+        <h4>Udhaar / Loan Details</h4>
+        <div class="form-group">
+            <label for="depositAmount">Deposit Amount (₹)</label>
+            <input type="number" id="depositAmount" placeholder="Enter deposit amount" min="0">
+        </div>
+        <div class="balance-info">
+            <div class="balance-item">
+                <span>Total Amount:</span>
+                <span id="totalAmountDisplay">₹0</span>
+            </div>
+            <div class="balance-item">
+                <span>Remaining Balance:</span>
+                <span id="remainingBalance">₹0</span>
+            </div>
+        </div>
+        <button class="btn btn-primary" onclick="confirmUdhaar()">Confirm Udhaar</button>
+    </div>
+</div>
+                            
+                            <!-- UPI QR Code Section -->
+                            <div id="upiSection" class="upi-section" style="display: none;">
+                                <div class="qr-container">
+                                    <div id="qrCode"></div>
+                                    <div class="upi-info">
+                                        <p><strong>Pay ₹<span id="qrAmount">0</span> to:</strong></p>
+                                        <p id="qrUpiId" class="upi-id">yourname@upi</p>
+                                        <button class="btn btn-outline" onclick="copyUPIId()">
+                                            <i class="fas fa-copy"></i> Copy UPI ID
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="upi-apps">
+                                    <div class="upi-app">📱 Google Pay</div>
+                                    <div class="upi-app">🏪 Paytm</div>
+                                    <div class="upi-app">💸 PhonePe</div>
+                                    <div class="upi-app">📦 Amazon Pay</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="items-added-list" id="itemsAddedList">
+                            <h4>Items Added:</h4>
+                            <div id="itemsListPreview"></div>
+                        </div>
+
+                       <div class="voice-action-buttons">
+    <button class="btn btn-primary" onclick="speakInvoiceSummary()">
+        <i class="fas fa-volume-up"></i> Invoice Details Suno
+    </button>
+    <button class="btn btn-warning" onclick="checkPaymentStatus()">
+        <i class="fas fa-receipt"></i> Payment Status
+    </button>
+    <button class="btn btn-success" onclick="generatePDF()">
+        <i class="fas fa-file-pdf"></i> Download PDF
+    </button>
+    <button class="btn btn-secondary" onclick="printInvoice()">
+        <i class="fas fa-print"></i> Print Invoice
+    </button>
+</div>
+                    </div>
+                    
+                   <div class="form-actions">
+    <button class="btn btn-outline" id="prevTabBtn" disabled>Previous</button>
+    <button class="btn btn-primary" id="nextTabBtn">Next</button>
+    <button class="btn btn-info" id="saveBtn" onclick="saveInvoiceData()">
+        <i class="fas fa-save"></i> Save
+    </button>
+    <button class="btn btn-success" id="generatePdfBtn" style="display: none;">
+        <i class="fas fa-file-pdf"></i> Generate PDF
+    </button>
+</div>
+                </div>
+                
+                <div class="preview-section">
+                    <div class="preview-header">
+                        <h3>Live Preview</h3>
+                        <div class="template-selector">
+                            <select id="templateSelect">
+                                <option value="modern">Modern Professional</option>
+                                <option value="classic">Classic Business</option>
+                                <option value="premium">Premium Luxury</option>
+                                <option value="vibrant">Vibrant Colorful</option>
+                                <option value="elegant">Elegant Simple</option>
+                                <option value="corporate">Corporate Style</option>
+                                <option value="minimal">Minimal Clean</option>
+                                <option value="creative">Creative Design</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="invoice-preview" id="invoicePreview">
+                        <!-- Invoice preview will be rendered here -->
+                    </div>
+                    
+                    <div class="preview-actions">
+                        <button class="btn btn-primary" onclick="shareViaWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> WhatsApp pe Bheje
+                        </button>
+                        <button class="btn btn-success" onclick="generatePDF()">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                        <button class="btn btn-outline" onclick="printInvoice()">
+                            <i class="fas fa-print"></i> Print
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="section-title">Khaas Features</h2>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3>Voice First</h3>
+                    <p>Bol kar invoice banaye. Hindi/English mixing fully supported. Hands-free billing!</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>GST Compliant</h3>
+                    <p>Automatic GST calculations. GST on/off voice command se control kare.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Har device pe perfect work kare - mobile, tablet, desktop. Fully responsive.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <h3>Free Forever</h3>
+                    <p>Basic features completely free. Unlimited invoices without any cost.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries-section" id="industries">
+        <div class="container">
+            <h2 class="section-title">All Industries Supported</h2>
+            <p class="section-subtitle">Perfect for every type of business in India</p>
+            
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-icon">🏪</div>
+                    <h3>Retail Shops</h3>
+                    <p>Kirana stores, supermarkets, fashion stores</p>
+                    <a href="#" class="industry-link" data-industry="retail">Learn More</a>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">🍽️</div>
+                    <h3>Restaurants</h3>
+                    <p>Food bills with itemized orders and taxes</p>
+                    <a href="#" class="industry-link" data-industry="restaurant">Learn More</a>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">💊</div>
+                    <h3>Medical Stores</h3>
+                    <p>Medicine bills with expiry dates</p>
+                    <a href="#" class="industry-link" data-industry="medical">Learn More</a>
+                </div>
+                
+                <div class="industry-card">
+                    <div class="industry-icon">🔧</div>
+                    <h3>Services</h3>
+                    <p>Consultants, freelancers, professionals</p>
+                    <a href="#" class="industry-link" data-industry="services">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hardware Section -->
+    <section class="hardware-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Complete Billing Solutions</h2>
+            
+            <div class="hardware-grid">
+                <div class="hardware-card">
+                    <div class="hardware-image">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <div class="hardware-info">
+                        <h3>Mini Thermal Printer</h3>
+                        <p class="price">₹999</p>
+                        <ul>
+                            <li>Portable & Compact</li>
+                            <li>Bluetooth Connectivity</li>
+                            <li>58mm Paper Width</li>
+                            <li>Perfect for Small Shops</li>
+                        </ul>
+                        <button class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
+                
+                <div class="hardware-card featured">
+                    <div class="hardware-image">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <div class="hardware-info">
+                        <h3>Desktop Billing Printer</h3>
+                        <p class="price">₹1,999</p>
+                        <ul>
+                            <li>80mm Paper Width</li>
+                            <li>USB & Bluetooth</li>
+                            <li>High Speed Printing</li>
+                            <li>Ideal for Medium Businesses</li>
+                        </ul>
+                        <button class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
+                
+                <div class="hardware-card">
+                    <div class="hardware-image">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <div class="hardware-info">
+                        <h3>Professional Printer + Software</h3>
+                        <p class="price">₹2,999</p>
+                        <ul>
+                            <li>Complete Billing System</li>
+                            <li>Inventory Management</li>
+                            <li>Customer Database</li>
+                            <li>Best for Large Stores</li>
+                        </ul>
+                        <button class="btn btn-primary">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Kya SparkInvoice really free hai?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Haan! Basic features completely free hain. Aap unlimited invoices bina kisi cost ke bana sakte hain. Premium features ke liye affordable plans available hain.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Voice recognition kitne languages mein kaam karta hai?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Hum Hindi aur English dono languages support karte hain. Aap mixing bhi kar sakte hain - "Item laptop add karo" ya "Add laptop" dono chalega!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Kya GST calculations automatic hote hain?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Bilkul! Aap bas GST percentage daalo, baaki calculation automatically ho jayega. Aap voice command se bhi GST on/off kar sakte hain.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Mobile app available hai kya?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Website fully mobile responsive hai. Aap kisi bhi browser mein use kar sakte hain. Progressive Web App (PWA) support hai - home screen pe add kar ke use karo!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-bolt logo-icon"></i>
+                        <span>SparkInvoice</span>
+                    </div>
+                    <p>India's first voice-powered billing software. Bol kar professional GST invoices banaye.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Voice Billing</a></li>
+                        <li><a href="#">Accounting Software</a></li>
+                        <li><a href="#">Inventory Management</a></li>
+                        <li><a href="#">GST Software</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Industries</h3>
+                    <ul>
+                        <li><a href="#">Retail Shops</a></li>
+                        <li><a href="#">Restaurants</a></li>
+                        <li><a href="#">Medical Stores</a></li>
+                        <li><a href="#">Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> HSR Layout, Bengaluru</p>
+                        <p><i class="fas fa-phone"></i> +91-9673293263</p>
+                        <p><i class="fas fa-envelope"></i> support@sparkinvoice.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 SparkInvoice. All rights reserved. | India's Voice Billing Solution</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Voice Chatbot -->
+    <div class="chatbot-toggle" id="chatbotToggle">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <div class="chatbot-panel" id="chatbotPanel">
+        <div class="chatbot-header">
+            <div class="chatbot-title">Voice Assistant</div>
+            <div class="chatbot-controls">
+                <button class="chatbot-speaker" id="chatbotSpeaker">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot-message">
+                Namaste! Main SparkInvoice voice assistant hoon. Aap mujhse bol kar invoice bana sakte hain!
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Poochiye: 'Invoice kaise banaye?'">
+            <button class="chatbot-send" id="chatbotSend">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+            <button class="chatbot-voice" id="chatbotVoice">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Auth Modals -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to SparkInvoice</h2>
+                <button class="modal-close" id="loginModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-options">
+                        <div class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <label for="rememberMe">Remember me</label>
+                        </div>
+                        <a href="#" id="forgotPassword">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                </form>
+                
+                <div class="auth-divider">
+                    <span>Or continue with</span>
+                </div>
+                
+                <div class="social-auth">
+                    <button class="btn btn-outline btn-social">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button class="btn btn-outline btn-social">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </button>
+                </div>
+                
+                <div class="auth-switch">
+                    <p>Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Account</h2>
+                <button class="modal-close" id="signupModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPhone">Phone Number</label>
+                        <input type="tel" id="signupPhone" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <input type="password" id="signupConfirmPassword" placeholder="Confirm your password" required>
+                    </div>
+                    <div class="form-options">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <label for="agreeTerms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+                </form>
+                
+                <div class="auth-divider">
+                    <span>Or continue with</span>
+                </div>
+                
+                <div class="social-auth">
+                    <button class="btn btn-outline btn-social">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button class="btn btn-outline btn-social">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </button>
+                </div>
+                
+                <div class="auth-switch">
+                    <p>Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="otpModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Verify OTP</h2>
+                <button class="modal-close" id="otpModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>We've sent a 6-digit OTP to your phone number</p>
+                
+                <div class="otp-inputs">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                </div>
+                
+                <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Verify OTP</button>
+                
+                <div class="otp-resend">
+                    <p>Didn't receive OTP? <a href="#">Resend OTP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+    <script src="script.js"></script>
+
+<script src="triple-login.js"></script>
+
+
+<!-- Business Details Modal -->
+<div id="businessModal" class="modal">
+    <div class="modal-content business-modal">
+        <div class="modal-header">
+            <h2><i class="fas fa-building"></i> Business Details</h2>
+            <button class="modal-close" onclick="closeModal('businessModal')">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="business-form-container">
+                <!-- Business Stats -->
+                <div class="business-stats">
+                    <div class="business-stat-card">
+                        <div class="business-stat-icon">🏢</div>
+                        <div class="business-stat-number" id="businessInvoicesCount">0</div>
+                        <div class="business-stat-label">Total Invoices</div>
+                    </div>
+                    <div class="business-stat-card">
+                        <div class="business-stat-icon">💰</div>
+                        <div class="business-stat-number" id="businessRevenue">₹0</div>
+                        <div class="business-stat-label">Total Revenue</div>
+                    </div>
+                    <div class="business-stat-card">
+                        <div class="business-stat-icon">👥</div>
+                        <div class="business-stat-number" id="businessCustomers">0</div>
+                        <div class="business-stat-label">Customers</div>
+                    </div>
+                    <div class="business-stat-card">
+                        <div class="business-stat-icon">📅</div>
+                        <div class="business-stat-number" id="businessDays">0</div>
+                        <div class="business-stat-label">Days Active</div>
+                    </div>
+                </div>
+
+                <!-- Business Logo Section -->
+                <div class="business-logo-section">
+                    <img src="" alt="Business Logo" class="business-logo-preview" id="businessLogoPreview" 
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiByeD0iMTUiIGZpbGw9IiMwMEY3RkYiIGZpbGwtb3BhY2l0eT0iMC4xIi8+CjxwYXRoIGQ9Ik00MCA0MEg4MFY4MEg0MFY0MFoiIGZpbGw9IiMwMEY3RkYiIGZpbGwtb3BhY2l0eT0iMC4zIi8+CjxwYXRoIGQ9Ik00NSA0NVY3NUg3NVY0NUg0NVoiIGZpbGw9IiMwMEY3RkYiLz4KPC9zdmc+'">
+                    <div class="business-logo-actions">
+                        <button class="btn btn-outline" onclick="uploadBusinessLogo()">
+                            <i class="fas fa-upload"></i> Upload Logo
+                        </button>
+                        <button class="btn btn-outline" onclick="removeBusinessLogo()">
+                            <i class="fas fa-trash"></i> Remove
+                        </button>
+                    </div>
+                    <input type="file" id="businessLogoInput" accept="image/*" style="display: none;" onchange="handleBusinessLogoUpload(event)">
+                </div>
+
+                <!-- Auto-fill Toggle -->
+                <div class="business-auto-fill-toggle">
+                    <div class="toggle-label">
+                        <i class="fas fa-magic"></i>
+                        <span>Auto-fill Business Details in Invoices</span>
+                    </div>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="autoFillToggle" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+
+                <!-- Business Details Form -->
+                <div class="business-form-grid">
+                    <div class="business-form-group">
+                        <label for="businessName">
+                            <i class="fas fa-store"></i> Business Name *
+                        </label>
+                        <input type="text" id="businessName" placeholder="Enter your business name">
+                    </div>
+                    
+                    <div class="business-form-group">
+                        <label for="businessPhone">
+                            <i class="fas fa-phone"></i> Contact Number
+                        </label>
+                        <input type="tel" id="businessPhone" placeholder="+91 9876543210">
+                    </div>
+                    
+                    <div class="business-form-group full-width">
+                        <label for="businessAddress">
+                            <i class="fas fa-map-marker-alt"></i> Business Address
+                        </label>
+                        <textarea id="businessAddress" placeholder="Complete business address"></textarea>
+                    </div>
+                    
+                    <div class="business-form-group">
+                        <label for="businessGST">
+                            <i class="fas fa-file-invoice"></i> GST Number
+                        </label>
+                        <input type="text" id="businessGST" placeholder="GSTIN Number">
+                    </div>
+                    
+                    <div class="business-form-group">
+                        <label for="businessUPI">
+                            <i class="fas fa-qrcode"></i> UPI ID
+                        </label>
+                        <input type="text" id="businessUPI" placeholder="yourbusiness@upi">
+                    </div>
+                    
+                    <div class="business-form-group">
+                        <label for="businessEmail">
+                            <i class="fas fa-envelope"></i> Business Email
+                        </label>
+                        <input type="email" id="businessEmail" placeholder="business@email.com">
+                    </div>
+                    
+                    <div class="business-form-group">
+                        <label for="businessWebsite">
+                            <i class="fas fa-globe"></i> Website
+                        </label>
+                        <input type="url" id="businessWebsite" placeholder="https://yourbusiness.com">
+                    </div>
+                </div>
+
+                <!-- Business Info Preview -->
+                <div class="business-info-preview">
+                    <div class="business-info-header">
+                        <div class="business-info-title">
+                            <i class="fas fa-eye"></i> Preview
+                        </div>
+                        <button class="business-info-edit" onclick="applyBusinessDetails()">
+                            <i class="fas fa-sync"></i> Apply to Current Invoice
+                        </button>
+                    </div>
+                    <div class="business-info-content" id="businessInfoPreview">
+                        <div class="business-info-item full-width">
+                            <div class="business-info-value" style="text-align: center; opacity: 0.7;">
+                                No business details saved yet
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline" onclick="closeModal('businessModal')">Cancel</button>
+            <button class="btn btn-primary" onclick="saveBusinessDetails()">
+                <i class="fas fa-save"></i> Save Business Details
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

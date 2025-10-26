@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SparkInvoice - Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="triple-login.css">
+    <!-- Google OAuth Library -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-bolt logo-icon"></i>
+                <span>SparkInvoice</span>
+            </div>
+            <div class="tagline">India's #1 Voice Billing Software</div>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form-container">
+            <h1>Create Your Account</h1>
+            
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="businessName">Business Name *</label>
+                    <input type="text" id="businessName" placeholder="Enter your business/shop name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" placeholder="ravikasaudhan01@gmail.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <input type="password" id="password" placeholder="Create a password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password *</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                
+                <div class="checkbox-group">
+                    <input type="checkbox" id="agreeTerms" required>
+                    <label for="agreeTerms">I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+
+            <div class="divider">
+                <span>Or sign up with</span>
+            </div>
+
+            <div class="auth-options">
+                <div class="auth-btn combined-btn" onclick="startEmailOTP()">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email OTP</span>
+                </div>
+                
+                <!-- Google Sign Up Button -->
+                <div id="googleSignUpBtn" class="auth-btn google-btn">
+                    <i class="fab fa-google"></i>
+                    <span>Google Sign Up</span>
+                </div>
+            </div>
+
+            <div class="login-link">
+                Already have an account? <a href="#" onclick="openLoginModal()">Login here</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTP Modal -->
+    <div class="modal" id="otpModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Verify OTP</h2>
+                <button class="modal-close" onclick="closeOTPModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="otpMessage">We've sent a 6-digit OTP to your email and phone</p>
+                
+                <div class="otp-inputs">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                    <input type="text" class="otp-input" maxlength="1" autocomplete="off">
+                </div>
+                
+                <button class="btn btn-primary" onclick="verifyOTP()">Verify OTP</button>
+                
+                <div class="otp-resend">
+                    <p>Didn't receive OTP? <a href="#" onclick="resendOTP()">Resend OTP</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to SparkInvoice</h2>
+                <button class="modal-close" onclick="closeLoginModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address *</label>
+                        <input type="email" id="loginEmail" placeholder="ravikasaudhan01@gmail.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Password *</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="rememberMe">
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <div class="divider">
+                    <span>Or login with</span>
+                </div>
+
+                <div class="auth-options">
+                    <div class="auth-btn" onclick="startEmailOTP()">
+                        <i class="fas fa-envelope"></i>
+                        <span>Email OTP Login</span>
+                    </div>
+                    
+                    <!-- Google Login Button -->
+                    <div id="googleLoginBtn" class="auth-btn google-btn">
+                        <i class="fab fa-google"></i>
+                        <span>Google Login</span>
+                    </div>
+                </div>
+
+                <div class="login-link">
+                    Don't have an account? <a href="#" onclick="closeLoginModal()">Sign up here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="triple-login.js"></script>
+</body>
+</html>
